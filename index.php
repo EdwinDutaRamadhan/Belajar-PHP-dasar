@@ -6,22 +6,29 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        .warna-tabel{
+            background-color: lightblue;
+        }
+        .warna-tabel-ganjil{
+            background-color: darkblue;
+        }
+    </style>
 </head>
 <body>
     <table border="1" cellspacing="0" cellpadding="10">
-        <?php
-            cetakTabel(10,10);
-
-            function cetakTabel ( $row,$column ) {
-                for($i = 1; $i <= $row; $i++) {
-                    echo "<tr>";
-                     for($j = 1; $j <= $column; $j++) {
-                        echo "<td>$i.","$j</td> ";
-                        }
-                    echo "</tr>";
-                }
-            }
-        ?>
+        <?php for($i = 1; $i <= 5;$i++) :?>
+            <?php if($i % 2 == 0) :?>
+                <tr class="warna-tabel">
+            <?php else :?>
+                <tr class="warna-tabel-ganjil">
+            <?php endif; ?>
+            
+                <?php for($j=1;$j<=5;$j++) :?>
+                    <td><?= "$i, $j"; ?></td>
+                <?php endfor; ?>
+            </tr>
+        <?php endfor; ?>
     </table>
 </body>
 </html>
