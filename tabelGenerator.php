@@ -10,7 +10,7 @@
 <body>
     <table border="1" cellspacing="0" cellpadding="10">
         <?php
-            cetakTabel(10,10);
+            cetakTabel(9,10);
 
             function cetakTabel ( $row,$column ) {
                 for($i = 1; $i <= $row; $i++) {
