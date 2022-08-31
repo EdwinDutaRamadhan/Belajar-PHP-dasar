@@ -51,7 +51,6 @@
 </head>
 <body>
     <h1>Daftar Sosial Media</h1>
-    
         <?php foreach ($mahasiswa as $mhs) : ?>
             <ul>
                 <li>
