@@ -2,7 +2,9 @@
     require 'functiondb.php';
     
     $sosmed = query("SELECT * FROM sosmed_tbl");
-
+    if( isset($_POST['cari'])){
+        $sosmed = cari($_POST['keyword']);
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -16,6 +18,11 @@
     
     <h1>Daftar Sosial Media</h1>
     <a href="tambah.php">Tambah data sosial media</a>
+    <br><br>
+    <form action="" method= "post">
+        <input type="text" name="keyword" size="30"autocomplete="off" autofocus placeholder="Cari">
+        <button type="submit" name="cari" >Cari Nama</button>
+    </form>
     <table border = "1" cellspacing = "0" cellpadding = "10">
         <tr>
            <th>No.</th> 

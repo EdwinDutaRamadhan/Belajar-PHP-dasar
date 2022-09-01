@@ -53,4 +53,14 @@
         return mysqli_affected_rows($conn);
 
     }
+    function cari($keyword){
+        $query = "SELECT * FROM sosmed_tbl
+                WHERE
+                Nama LIKE '%$keyword%' OR
+                Jenis LIKE '%$keyword%' OR
+                Platform LIKE '%$keyword%'OR
+                Site LIKE '%$keyword%'
+                ";
+        return query($query);
+    }
 ?>
