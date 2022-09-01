@@ -31,7 +31,7 @@
         <tr>
             <td><?= $i; ?></td>
             <td>
-                <a href="">Ubah</a> |
+                <a href="ubah.php?id=<?= $row["ID"]; ?>">Ubah</a> |
                 <a href="hapus.php?id=<?= $row["ID"]; ?>" onclick="return confirm('Apakah anda yakin ingin menghapus?');">Hapus</a>
             </td>
             <td><img src="img/<?= $row["Gambar"]; ?>" width="40"></td>

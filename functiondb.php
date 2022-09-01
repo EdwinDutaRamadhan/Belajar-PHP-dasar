@@ -32,5 +32,25 @@
         mysqli_query($conn, "DELETE FROM sosmed_tbl WHERE id = $id");
         return mysqli_affected_rows($conn);
     }
+    function ubah($data){
+        global $conn;
+        $id = $data['id'];
+        $Nama = htmlspecialchars($data["Nama"]);
+        $Jenis = htmlspecialchars($data["Jenis"]);
+        $Platform = htmlspecialchars($data["Platform"]);
+        $Site = htmlspecialchars($data["Site"]);
+        $Gambar = htmlspecialchars($data["Gambar"]);
 
+        $query = "UPDATE sosmed_tbl SET 
+                Nama = '$Nama',
+                Jenis = '$Jenis',
+                Platform = '$Platform',
+                Site = '$Site',
+                Gambar = '$Gambar'
+                WHERE id = $id
+                ";
+        mysqli_query($conn, $query);
+        return mysqli_affected_rows($conn);
+
+    }
 ?>
