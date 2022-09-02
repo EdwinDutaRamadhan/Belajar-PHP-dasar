@@ -7,7 +7,7 @@
         echo "
                 <script>
                     alert('data berhasil dihapus!');
-                    document.location.href = 'database.php';
+                    document.location.href = 'main.php';
                 </script>
             ";
         
@@ -15,7 +15,7 @@
         echo "
                 <script>
                     alert('data gagal dihapus!');
-                    document.location.href = 'database.php';
+                    document.location.href = 'main.php';
                 </script>
             ";
 

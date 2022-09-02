@@ -5,19 +5,18 @@
         die("Connection failed: " . $conn->connect_error);
       }
     if( isset($_POST["submit"]) ){
-        
-        if( tambah($_POST)>0){
+        if( tambah($_POST) > 0){
             echo "
                 <script>
                     alert('data berhasil ditambahkan!');
-                    document.location.href = 'database.php';
+                    document.location.href = 'main.php';
                 </script>
             ";
         }else{
             echo "
                 <script>
-                    alert('data berhasil ditambahkan!');
-                    document.location.href = 'database.php';
+                    alert('data gagal ditambahkan!');
+                    document.location.href = 'main.php';
                 </script>
             ";
         }
@@ -35,7 +34,7 @@
 <body>
     <h1>Tambah Data Sosial Media</h1>
 
-    <form action="" method= "post">
+    <form action="" method= "post" enctype="multipart/form-data">
         <ul>
             <li>
                 <label for="Nama">Nama : </label>
@@ -55,7 +54,7 @@
             </li>
             <li>
                 <label for="Gambar">Gambar : </label>
-                <input type="text" name="Gambar" id="Gambar"></input>
+                <input type="file" name="Gambar" id="Gambar"></input>
             </li>
             <button type="submit" name="submit" id="submit">Tambah</button>
         </ul>

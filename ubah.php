@@ -35,9 +35,10 @@
 <body>
     <h1>Ubah Data Sosial Media</h1>
 
-    <form action="" method= "post">
+    <form action="" method= "post" enctype="multipart/form-data">
         <ul>
             <input type="hidden" name="id" value="<?= $sosmed["ID"]; ?>">
+            <input type="hidden" name="GambarLama" value="<?= $sosmed["Gambar"]; ?>">
             <li>
                 <label for="Nama">Nama : </label>
                 <input type="text" name="Nama" id="Nama" required value="<?= $sosmed["Nama"] ?>"></input>
@@ -55,8 +56,9 @@
                 <input type="text" name="Site" id="Site" value="<?= $sosmed["Site"] ?>"></input>
             </li>
             <li>
-                <label for="Gambar">Gambar : </label>
-                <input type="text" name="Gambar" id="Gambar" value="<?= $sosmed["Gambar"] ?>"></input>
+                <label for="Gambar">Gambar : </label><br>
+                <img src="img/<?= $sosmed['Gambar'];?>" alt="not found" width="40px"><br>
+                <input type="file" name="Gambar" id="Gambar"></input>
             </li>
             <button type="submit" name="submit" id="submit">Ubah</button>
         </ul>
