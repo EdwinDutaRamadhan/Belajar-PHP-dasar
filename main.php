@@ -1,4 +1,8 @@
 <?php
+    session_start();
+    if( !isset($_SESSION["login"])){
+        header("Location: login.php");
+    }
     require 'functiondb.php';
     
     $sosmed = query("SELECT * FROM sosmed_tbl");
@@ -15,7 +19,7 @@
     <title>php to database</title>
 </head>
 <body>
-    
+    <a href="logout.php">Log out</a>
     <h1>Daftar Sosial Media</h1>
     <a href="tambah.php">Tambah data sosial media</a>
     <br><br>

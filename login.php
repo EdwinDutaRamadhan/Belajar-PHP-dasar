@@ -1,4 +1,9 @@
 <?php
+    session_start();
+    if( isset($_SESSION["login"])){
+        header("Location: main.php");
+        exit;
+    }
     require 'functiondb.php';
     if( isset($_POST['login'])){
 
@@ -12,6 +17,8 @@
             $row = mysqli_fetch_assoc($result);
             if( password_verify($password, $row['Password']) ){
                 //username password benar
+                //set session
+                $_SESSION["login"] = true;
                 header("Location: main.php");
                 exit;
             }

@@ -1,4 +1,8 @@
 <?php
+    session_start();
+    if( !isset($_SESSION["login"])){
+        header("Location: login.php");
+    }
     require 'functiondb.php';
     $conn = mysqli_connect("localhost","root","","socialmedia_db");
     if ($conn->connect_error) {
