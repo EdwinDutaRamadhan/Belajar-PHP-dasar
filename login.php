@@ -1,9 +1,10 @@
 <?php
     session_start();
-    if( isset($_SESSION["login"])){
-        header("Location: main.php");
-        exit;
-    }
+    // if( isset($_COOKIE['login'])) {
+    //     if( $_COOKIE['login'] == 'true'){
+    //         $_SESSION['login'] = true;
+    //     }
+    // }
     require 'functiondb.php';
     if( isset($_POST['login'])){
 
@@ -19,6 +20,10 @@
                 //username password benar
                 //set session
                 $_SESSION["login"] = true;
+                //remember me
+                if( isset($_POST['remember'])){
+                    setcookie('username', hash('sha256',$row['username']), time()+60);
+                }
                 header("Location: main.php");
                 exit;
             }
@@ -51,6 +56,10 @@
             <li>
                 <label for="password">Password</label>
                 <input type="password" name="password" id="password" placeholder="Password" required></input>
+            </li>
+            <li>
+                <input type="checkbox" name="remember" id="remember"></input>
+                <label for="remember">Remember me</label>
             </li>
             <li>
                 <button type="submit" name="login">Masuk</button>

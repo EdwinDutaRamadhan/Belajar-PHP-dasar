@@ -5,7 +5,15 @@
     }
     require 'functiondb.php';
     
-    $sosmed = query("SELECT * FROM sosmed_tbl");
+    //pagination
+    $jumlahDataPerhalaman = 3;
+    $jumlahData = count(query("SELECT * FROM sosmed_tbl"));
+    $jumlahHalaman = ceil($jumlahData / $jumlahDataPerhalaman);
+
+    $halamanSekarang = ( isset($_GET["halaman"])) ? $_GET["halaman"] : 1;
+    $dataAwal = ( $jumlahDataPerhalaman * $halamanSekarang ) - $jumlahDataPerhalaman ;
+    
+    $sosmed = query("SELECT * FROM sosmed_tbl LIMIT $dataAwal, $jumlahDataPerhalaman ");
     if( isset($_POST['cari'])){
         $sosmed = cari($_POST['keyword']);
     }
